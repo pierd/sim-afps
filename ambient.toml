@@ -1,0 +1,20 @@
+[package]
+id = "sim_afps"
+name = "sim-afps"
+version = "0.0.1"
+content = { type = "Playable" }
+
+[components]
+is_simulated = { type = "Bool", description = "True when the player's movements should be simulated", attributes = [
+    "Debuggable",
+    "Networked",
+] }
+
+[dependencies]
+afps = { path = "../Ambient/guest/rust/packages/games/afps", deployment = "7jNvXgOQK1gNYRpvRfbcNS" }
+afps_schema = { path = "../Ambient/guest/rust/packages/games/afps/schema", deployment = "5JAp1HjXPkNow3vdiKdrqR" }
+unit_schema = { path = "../Ambient/guest/rust/packages/schemas/unit", deployment = "70WbowkpXNQ7636idiOWYS" }
+
+[messages]
+[messages.StopSim.fields]
+player_id = "EntityId"
