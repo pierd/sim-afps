@@ -4,15 +4,14 @@ use packages::{afps_schema::{components::{player_name, player_cam_ref}, messages
 const FRAMES_BETWEEN_ACTION_CHANGE: i32 = 60;
 
 fn random_input() -> Input {
-    let jump = random::<usize>() % 4 == 0;
     Input {
         direction: Vec2::new((random::<usize>() % 3) as f32 - 1.0, (random::<usize>() % 3) as f32 - 1.0),    // -1, 0, 1 for both x and y
         mouse_delta: Vec2::ZERO,
         shoot: false,
         toggle_zoom: false,
         is_shooting: false,
-        duck: !jump && random::<usize>() % 4 == 0,
-        jump,
+        duck: false,
+        jump: false,
         running: random(),
         ray_origin: Vec3::ZERO,
         ray_dir: Vec3::ZERO,
